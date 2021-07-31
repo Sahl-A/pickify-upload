@@ -1,6 +1,6 @@
 import { createConnection, Connection, useContainer } from 'typeorm';
 import config from '../config';
-import { Container } from 'typedi';
+import { Container } from 'typeorm-typedi-extensions';
 
 export default async (): Promise<Connection> => {
   useContainer(Container);
