@@ -16,8 +16,8 @@ const typeOrmConfig: ConnectionOptions = {
   ssl: {
     rejectUnauthorized: false,
   },
-  entities: ['dist/entities/*.{.ts,.js}'],
-  migrations: ['dist/shared/migrations/*.js'],
+  entities: ['dist/src/entities/*.js'],
+  migrations: ['dist/src/shared/migrations/*.js'],
   cli: {
     entitiesDir: 'src/**/entity',
     migrationsDir: 'src/shared/migrations',
