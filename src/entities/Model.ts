@@ -13,7 +13,7 @@ import { getNow } from '../shared/utils/datetime';
 // TODO: not sure if there is a way to add this
 // using annotation or static class method
 // to be shared with all Model extending the `Model`
-export const POSTS_SCHEMA = 'pickify_upload';
+export const UPLOAD_SCHEMA = 'pickify_upload';
 
 export default abstract class Model extends BaseEntity {
   constructor(model?: Partial<any>) {

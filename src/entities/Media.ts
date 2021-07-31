@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import Model from './Model';
+import Model, { UPLOAD_SCHEMA } from './Model';
 
-@Entity()
+@Entity({ schema: UPLOAD_SCHEMA })
 export class Media extends Model {
   @PrimaryGeneratedColumn()
   id: number;
