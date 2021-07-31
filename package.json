@@ -53,9 +53,11 @@
     "moment-timezone": "^0.5.31",
     "mongoose": "^5.10.6",
     "morgan": "^1.10.0",
+    "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.1.6",
     "typedi": "^0.8.0",
+    "typeorm": "^0.2.36",
     "winston": "^3.3.3"
   },
   "devDependencies": {

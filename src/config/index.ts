@@ -1,10 +1,14 @@
 import dotenv from 'dotenv';
+import path from 'path';
+import typeOrmConnectionOptions from './database';
 
 // Set the NODE_ENV to 'development' by default
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-const envFound = dotenv.config();
-if (envFound.error) {
+const dotenv_path = path.resolve(process.cwd(), `.${process.env.NODE_ENV}.env`);
+const result = dotenv.config({ path: dotenv_path });
+
+if (result.error) {
   // This error should crash whole process
 
   throw new Error("⚠️  Couldn't find .env file  ⚠️");
@@ -19,7 +23,7 @@ export default {
   /**
    * That long string from mlab
    */
-  databaseURL: process.env.MONGODB_URI,
+  database: typeOrmConnectionOptions,
 
   /**
    * Your secret sauce
@@ -48,7 +52,7 @@ export default {
    */
   agendash: {
     user: 'agendash',
-    password: '123456'
+    password: '123456',
   },
   /**
    * API configs
@@ -62,6 +66,6 @@ export default {
   emails: {
     apiKey: process.env.MAILGUN_API_KEY,
     apiUsername: process.env.MAILGUN_USERNAME,
-    domain: process.env.MAILGUN_DOMAIN
-  }
+    domain: process.env.MAILGUN_DOMAIN,
+  },
 };

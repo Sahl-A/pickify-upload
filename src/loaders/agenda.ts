@@ -1,9 +1,9 @@
 import Agenda from 'agenda';
 import config from '../config';
 
-export default ({ mongoConnection }) => {
+export default ({ test }) => {
   return new Agenda({
-    mongo: mongoConnection,
+    mongo: test,
     db: { collection: config.agenda.dbCollection },
     processEvery: config.agenda.pooltime,
     maxConcurrency: config.agenda.concurrency,
