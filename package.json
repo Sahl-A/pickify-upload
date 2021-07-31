@@ -1,34 +1,23 @@
 {
-  "name": "bulletproof-nodejs",
+  "name": "pickify-upload",
   "version": "1.0.0",
-  "description": "Bulletproof node.js",
-  "main": "src/app.ts",
+  "description": "upload microservice for pickify.net",
+  "main": "dist/app.ts",
   "scripts": {
     "build": "tsc",
-    "heroku-postbuild": "npm run build",
     "start": "nodemon",
     "inspect": "nodemon --inspect src/app.ts",
     "test": "jest",
-    "lint": "npm run lint:js ",
+    "lint": "yarn lint:js ",
     "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",
-    "lint:js": "npm run lint:eslint src/",
-    "lint:fix": "npm run lint:js -- --fix"
+    "lint:js": "yarn lint:eslint src/",
+    "lint:fix": "yarn lint:js -- --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/santiq/bulletproof-nodejs.git"
+    "url": "git+https://github.com/m3ntorship/pickify-upload.git"
   },
-  "keywords": [
-    "boilerplay",
-    "cron",
-    "jobs",
-    "js",
-    "javascript",
-    "typescript",
-    "node",
-    "express"
-  ],
-  "author": "Santiago Quinteros",
+  "author": "Pickify",
   "license": "ISC",
   "dependencies": {
     "agenda": "^3.1.0",
@@ -83,7 +72,7 @@
     "typescript": "^4.0.3"
   },
   "bugs": {
-    "url": "https://github.com/santiq/bulletproof-nodejs/issues"
+    "url": "https://github.com/m3ntorship/pickify-upload/issues"
   },
-  "homepage": "https://github.com/santiq/bulletproof-nodejs#readme"
+  "homepage": "https://github.com/m3ntorship/pickify-upload#readme"
 }
