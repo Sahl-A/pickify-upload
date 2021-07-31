@@ -11,13 +11,13 @@ const typeOrmConfig: ConnectionOptions = {
   username: process.env.APP_DB_USERNAME || 'postgres',
   password: process.env.APP_DB_PASSWORD || 'postgres',
   database: 'upload',
-  synchronize: (process.env.DB_SYNC === 'true' ? true : false) || false,
+  synchronize: true,
   logging: logging || false,
   ssl: {
     rejectUnauthorized: false,
   },
-  entities: ['dist/**/*.entity{.ts,.js}'],
-  migrations: ['dist/**/shared/migrations/*.js'],
+  entities: ['dist/entities/*.{.ts,.js}'],
+  migrations: ['dist/shared/migrations/*.js'],
   cli: {
     entitiesDir: 'src/**/entity',
     migrationsDir: 'src/shared/migrations',
