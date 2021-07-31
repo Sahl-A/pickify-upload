@@ -1,8 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import * as swaggerUi from 'swagger-ui-express';
 import cors from 'cors';
 import routes from '../api';
 import config from '../config';
+import * as swaggerDocument from '../../openAPI/upload.openAPI.json';
+
 export default ({ app }: { app: express.Application }) => {
   /**
    * Health Check endpoints
@@ -24,18 +27,14 @@ export default ({ app }: { app: express.Application }) => {
   // Enable Cross Origin Resource Sharing to all origins by default
   app.use(cors());
 
-  // Some sauce that always add since 2014
-  // "Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it."
-  // Maybe not needed anymore ?
-  app.use(require('method-override')());
-
   // Middleware that transforms the raw string of req.body into json
   app.use(bodyParser.json());
   // Load API routes
   app.use(config.api.prefix, routes());
 
   // API Documentation
-  
+  express.Router().use('/', swaggerUi.serve);
+  express.Router().get('/', swaggerUi.setup(swaggerDocument));
 
   /// catch 404 and forward to error handler
   app.use((req, res, next) => {
@@ -50,10 +49,7 @@ export default ({ app }: { app: express.Application }) => {
      * Handle 401 thrown by express-jwt library
      */
     if (err.name === 'UnauthorizedError') {
-      return res
-        .status(err.status)
-        .send({ message: err.message })
-        .end();
+      return res.status(err.status).send({ message: err.message }).end();
     }
     return next(err);
   });
