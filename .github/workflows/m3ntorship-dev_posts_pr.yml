@@ -1,4 +1,4 @@
-name: build post service PR
+name: build upload service PR
 on:
   pull_request:
     branches:
@@ -6,7 +6,7 @@ on:
 
 env:
   M3_PROJECT: pickify
-  M3_COMPONENT: posts
+  M3_COMPONENT: upload
   M3_ENVIRONMENT: 'pr-${{ github.event.number }}'
   M3_VERSION: 'pr-${{ github.event.number }}-${{ github.run_number}}'
   M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-pr-${{ github.event.number }}'
@@ -16,10 +16,9 @@ env:
   M3_MAIN_APP_PORT: 3000
   M3_PORT_BACKEND: 80
   M3_DOCKER_FILE: Dockerfile
-  M3_IMAGE: m3ntorshipci/posts-service
+  M3_IMAGE: m3ntorshipci/upload-service
   M3_HOST_NAME: m3ntorship.net
-  M3_POSTS_DB_URL: ${{secrets.ELEPHANTSQL_URL_PR}}
-  M3_SERVICE_OPENAPI_SPECIFICATION: https://raw.githubusercontent.com/m3ntorship/pickify-v2-posts/development/openAPI/post.openAPI.yml
+  M3_SERVICE_OPENAPI_SPECIFICATION: https://raw.githubusercontent.com/m3ntorship/pickify-v2-posts/development/openAPI/upload.openAPI.yml
   M3_NODE_ENV: production
   
 jobs:

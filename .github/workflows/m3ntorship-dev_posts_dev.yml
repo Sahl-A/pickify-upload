@@ -1,4 +1,4 @@
-name: deploy posts service to dev
+name: deploy upload service to dev
 on:
   push:
     branches:
@@ -6,7 +6,7 @@ on:
 
 env:
   M3_PROJECT: pickify
-  M3_COMPONENT: posts
+  M3_COMPONENT: upload
   M3_ENVIRONMENT: 'be-dev'
   M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
   M3_DEPLOYMENT_PATH: deploy
@@ -16,12 +16,11 @@ env:
   M3_MAIN_APP_PORT: 3000
   M3_PORT_BACKEND: 80
   M3_DOCKER_FILE: Dockerfile
-  M3_IMAGE: m3ntorshipci/posts-service
+  M3_IMAGE: m3ntorshipci/upload-service
   M3_HOST_NAME: m3ntorship.net
-  M3_POSTS_DB_URL: ${{secrets.ELEPHANTSQL_URL}}
   M3_RABBITMQ_URL: ${{secrets.RABBITMQ_URL}}
   M3_BROKER_QUEUE_PATTERN: added_media_data
-  M3_SERVICE_OPENAPI_SPECIFICATION: https://raw.githubusercontent.com/m3ntorship/pickify-v2-posts/development/openAPI/post.openAPI.yml
+  M3_SERVICE_OPENAPI_SPECIFICATION: https://raw.githubusercontent.com/m3ntorship/pickify-upload/development/openAPI/upload.openAPI.yml
   M3_NODE_ENV: production
   M3_MEDIA_QUEUE: media_queue_dev
   
