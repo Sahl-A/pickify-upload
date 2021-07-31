@@ -24,7 +24,7 @@ spec:
     - superuser
     - createdb
   databases:
-    posts: "{{{M3_APP_USER}}}"  # dbname: owner
+    upload: "{{{M3_APP_USER}}}"  # dbname: owner
   postgresql:
     version: "13"
   tolerations:
